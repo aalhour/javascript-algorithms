@@ -20,14 +20,16 @@ describe('BinarySearchTreeNode', () => {
 
   it('should insert nodes in correct order', () => {
     const bstNode = new BinarySearchTreeNode(2);
-    bstNode.insert(1);
+    const insertedNode1 = bstNode.insert(1);
 
+    expect(insertedNode1.value).toBe(1);
     expect(bstNode.toString()).toBe('1,2');
     expect(bstNode.contains(1)).toBeTruthy();
     expect(bstNode.contains(3)).toBeFalsy();
 
-    bstNode.insert(3);
+    const insertedNode2 = bstNode.insert(3);
 
+    expect(insertedNode2.value).toBe(3);
     expect(bstNode.toString()).toBe('1,2,3');
     expect(bstNode.contains(3)).toBeTruthy();
     expect(bstNode.contains(4)).toBeFalsy();
@@ -79,6 +81,27 @@ describe('BinarySearchTreeNode', () => {
     expect(node.findMin().value).toBe(1);
   });
 
+  it('should be possible to attach meta information to binary search tree nodes', () => {
+    const node = new BinarySearchTreeNode(10);
+
+    node.insert(20);
+    const node1 = node.insert(30);
+    node.insert(5);
+    node.insert(40);
+    const node2 = node.insert(1);
+
+    node.meta.set('color', 'red');
+    node1.meta.set('color', 'black');
+    node2.meta.set('color', 'white');
+
+    expect(node.meta.get('color')).toBe('red');
+
+    expect(node.findMin()).not.toBeNull();
+    expect(node.findMin().value).toBe(1);
+    expect(node.findMin().meta.get('color')).toBe('white');
+    expect(node.find(30).meta.get('color')).toBe('black');
+  });
+
   it('should find node', () => {
     const node = new BinarySearchTreeNode(10);
 
@@ -102,10 +125,13 @@ describe('BinarySearchTreeNode', () => {
 
     expect(bstRootNode.toString()).toBe('5,10,20');
 
-    bstRootNode.remove(5);
+    const removedNode1 = bstRootNode.remove(5);
     expect(bstRootNode.toString()).toBe('10,20');
-    bstRootNode.remove(20);
+    expect(removedNode1.value).toBe(5);
+
+    const removedNode2 = bstRootNode.remove(20);
     expect(bstRootNode.toString()).toBe('10');
+    expect(removedNode2.value).toBe(20);
   });
 
   it('should remove nodes with one child', () => {
@@ -170,5 +196,36 @@ describe('BinarySearchTreeNode', () => {
     }
 
     expect(removeNotExistingElementFromTree).toThrow();
+  });
+
+  it('should be possible to use objects as node values', () => {
+    const nodeValueComparatorCallback = (a, b) => {
+      const normalizedA = a || { value: null };
+      const normalizedB = b || { value: null };
+
+      if (normalizedA.value === normalizedB.value) {
+        return 0;
+      }
+
+      return normalizedA.value < normalizedB.value ? -1 : 1;
+    };
+
+    const obj1 = { key: 'obj1', value: 1, toString: () => 'obj1' };
+    const obj2 = { key: 'obj2', value: 2, toString: () => 'obj2' };
+    const obj3 = { key: 'obj3', value: 3, toString: () => 'obj3' };
+
+    const bstNode = new BinarySearchTreeNode(obj2, nodeValueComparatorCallback);
+    bstNode.insert(obj1);
+
+    expect(bstNode.toString()).toBe('obj1,obj2');
+    expect(bstNode.contains(obj1)).toBeTruthy();
+    expect(bstNode.contains(obj3)).toBeFalsy();
+
+    bstNode.insert(obj3);
+
+    expect(bstNode.toString()).toBe('obj1,obj2,obj3');
+    expect(bstNode.contains(obj3)).toBeTruthy();
+
+    expect(bstNode.findMin().value).toEqual(obj1);
   });
 });

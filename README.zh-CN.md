@@ -7,7 +7,9 @@
 
 每种算法和数据结构都有自己的 README 并提供相关说明以及进一步阅读和 YouTube 视频。
 
-_Read this in other languages:_ [_English_](https://github.com/trekhleb/javascript-algorithms/)
+_Read this in other languages:_
+[_English_](https://github.com/trekhleb/javascript-algorithms/),
+[繁體中文](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-TW.md)
 
 ## 数据结构
 
@@ -23,10 +25,7 @@ _Read this in other languages:_ [_English_](https://github.com/trekhleb/javascri
 * [树](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/tree)
     * [二分查找](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/tree/binary-search-tree)
     * [AVL 树](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/tree/avl-tree)
-    * 红黑树
-    * 后缀树
-    * 线段树 或 间隔树
-    * 二叉索引树
+    * [红黑树](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/tree/red-black-tree)
 * [图](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/graph) (有向图与无向图)
 * [并查集](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/disjoint-set)
 

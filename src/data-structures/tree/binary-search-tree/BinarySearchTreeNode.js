@@ -1,41 +1,69 @@
 import BinaryTreeNode from '../BinaryTreeNode';
+import Comparator from '../../../utils/comparator/Comparator';
 
 export default class BinarySearchTreeNode extends BinaryTreeNode {
+  /**
+   * @param {*} [value] - node value.
+   * @param {function} [compareFunction] - comparator function for node values.
+   */
+  constructor(value = null, compareFunction = undefined) {
+    super(value);
+
+    // This comparator is used to compare node values with each other.
+    this.compareFunction = compareFunction;
+    this.nodeValueComparator = new Comparator(compareFunction);
+  }
+
+  /**
+   * @param {*} value
+   * @return {BinarySearchTreeNode}
+   */
   insert(value) {
-    if (this.value === null) {
+    if (this.nodeValueComparator.equal(this.value, null)) {
       this.value = value;
+
       return this;
     }
 
-    if (value < this.value) {
+    if (this.nodeValueComparator.lessThan(value, this.value)) {
       // Insert to the left.
       if (this.left) {
-        this.left.insert(value);
-      } else {
-        this.setLeft(new BinarySearchTreeNode(value));
+        return this.left.insert(value);
       }
-    } else if (value > this.value) {
+
+      const newNode = new BinarySearchTreeNode(value, this.compareFunction);
+      this.setLeft(newNode);
+
+      return newNode;
+    } else if (this.nodeValueComparator.greaterThan(value, this.value)) {
       // Insert to the right.
       if (this.right) {
-        this.right.insert(value);
-      } else {
-        this.setRight(new BinarySearchTreeNode(value));
+        return this.right.insert(value);
       }
+
+      const newNode = new BinarySearchTreeNode(value, this.compareFunction);
+      this.setRight(newNode);
+
+      return newNode;
     }
 
     return this;
   }
 
+  /**
+   * @param {*} value
+   * @return {BinarySearchTreeNode}
+   */
   find(value) {
     // Check the root.
-    if (this.value === value) {
+    if (this.nodeValueComparator.equal(this.value, value)) {
       return this;
     }
 
-    if (value < this.value && this.left) {
+    if (this.nodeValueComparator.lessThan(value, this.value) && this.left) {
       // Check left nodes.
       return this.left.find(value);
-    } else if (value > this.value && this.right) {
+    } else if (this.nodeValueComparator.greaterThan(value, this.value) && this.right) {
       // Check right nodes.
       return this.right.find(value);
     }
@@ -43,10 +71,18 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
     return null;
   }
 
+  /**
+   * @param {*} value
+   * @return {boolean}
+   */
   contains(value) {
     return !!this.find(value);
   }
 
+  /**
+   * @param {*} value
+   * @return {BinarySearchTreeNode}
+   */
   remove(value) {
     const nodeToRemove = this.find(value);
 
@@ -65,7 +101,7 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
       // Find the next biggest value (minimum value in the right branch)
       // and replace current value node with that next biggest value.
       const nextBiggerNode = nodeToRemove.right.findMin();
-      if (nextBiggerNode !== nodeToRemove.right) {
+      if (!this.nodeComparator.equal(nextBiggerNode, nodeToRemove.right)) {
         this.remove(nextBiggerNode.value);
         nodeToRemove.value = nextBiggerNode.value;
       } else {
@@ -83,8 +119,13 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
         parent.replaceChild(nodeToRemove, nodeToRemove.right);
       }
     }
+
+    return nodeToRemove;
   }
 
+  /**
+   * @return {BinarySearchTreeNode}
+   */
   findMin() {
     if (!this.left) {
       return this;
