@@ -69,7 +69,7 @@ export default class BinaryTreeNode {
       return undefined;
     }
 
-    // Check if grand-parent has more than two children.
+    // Check if grand-parent has two children.
     if (!this.parent.parent.left || !this.parent.parent.right) {
       return undefined;
     }
@@ -83,6 +83,16 @@ export default class BinaryTreeNode {
 
     // Left one is an uncle.
     return this.parent.parent.left;
+  }
+
+  /**
+   * @param {*} value
+   * @return {BinaryTreeNode}
+   */
+  setValue(value) {
+    this.value = value;
+
+    return this;
   }
 
   /**
@@ -166,6 +176,16 @@ export default class BinaryTreeNode {
     }
 
     return false;
+  }
+
+  /**
+   * @param {BinaryTreeNode} sourceNode
+   * @param {BinaryTreeNode} targetNode
+   */
+  static copyNode(sourceNode, targetNode) {
+    targetNode.setValue(sourceNode.value);
+    targetNode.setLeft(sourceNode.left);
+    targetNode.setRight(sourceNode.right);
   }
 
   /**
