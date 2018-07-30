@@ -11,8 +11,15 @@ with related explanations and links for further reading (including ones
 to YouTube videos).
 
 _Read this in other languages:_
-[简体中文](README.zh-CN.md),
-[繁體中文](README.zh-TW.md)
+[_简体中文_](README.zh-CN.md),
+[_繁體中文_](README.zh-TW.md),
+[_한국어_](README.ko-KR.md),
+[_Polski_](README.pl-PL.md),
+[_Français_](README.fr-FR.md)
+
+> We’re writing a book that will clearly explain, in detail, the main algorithms. 
+If you’d like to be notified when the “JavaScript Algorithms” book 
+launches, [click here](https://upscri.be/402324/).
 
 ## Data Structures
 
@@ -84,7 +91,9 @@ a set of rules that precisely define a sequence of operations.
   * `A` [Regular Expression Matching](src/algorithms/string/regular-expression-matching)
 * **Searches**
   * `B` [Linear Search](src/algorithms/search/linear-search)
-  * `B` [Binary Search](src/algorithms/search/binary-search)
+  * `B` [Jump Search](src/algorithms/search/jump-search) (or Block Search) - search in sorted array
+  * `B` [Binary Search](src/algorithms/search/binary-search) - search in sorted array
+  * `B` [Interpolation Search](src/algorithms/search/interpolation-search) - search in uniformly distributed sorted array
 * **Sorting**
   * `B` [Bubble Sort](src/algorithms/sorting/bubble-sort)
   * `B` [Selection Sort](src/algorithms/sorting/selection-sort)
@@ -93,8 +102,8 @@ a set of rules that precisely define a sequence of operations.
   * `B` [Merge Sort](src/algorithms/sorting/merge-sort)
   * `B` [Quicksort](src/algorithms/sorting/quick-sort) - in-place and non-in-place implementations
   * `B` [Shellsort](src/algorithms/sorting/shell-sort)
-  * `A` [Counting Sort](src/algorithms/sorting/counting-sort)
-  * `A` [Radix Sort](src/algorithms/sorting/radix-sort)
+  * `B` [Counting Sort](src/algorithms/sorting/counting-sort)
+  * `B` [Radix Sort](src/algorithms/sorting/radix-sort)
 * **Trees**
   * `B` [Depth-First Search](src/algorithms/tree/depth-first-search) (DFS)
   * `B` [Breadth-First Search](src/algorithms/tree/breadth-first-search) (BFS)
@@ -102,8 +111,9 @@ a set of rules that precisely define a sequence of operations.
   * `B` [Depth-First Search](src/algorithms/graph/depth-first-search) (DFS)
   * `B` [Breadth-First Search](src/algorithms/graph/breadth-first-search) (BFS)
   * `B` [Kruskal’s Algorithm](src/algorithms/graph/kruskal) - finding Minimum Spanning Tree (MST) for weighted undirected graph
-  * `A` [Dijkstra Algorithm](src/algorithms/graph/dijkstra) - finding shortest path to all graph vertices
-  * `A` [Bellman-Ford Algorithm](src/algorithms/graph/bellman-ford) - finding shortest path to all graph vertices
+  * `A` [Dijkstra Algorithm](src/algorithms/graph/dijkstra) - finding shortest paths to all graph vertices from single vertex
+  * `A` [Bellman-Ford Algorithm](src/algorithms/graph/bellman-ford) - finding shortest paths to all graph vertices from single vertex
+  * `A` [Floyd-Warshall Algorithm](src/algorithms/graph/floyd-warshall) - find shortest paths between all pairs of vertices
   * `A` [Detect Cycle](src/algorithms/graph/detect-cycle) - for both directed and undirected graphs (DFS and Disjoint Set based versions)
   * `A` [Prim’s Algorithm](src/algorithms/graph/prim) - finding Minimum Spanning Tree (MST) for weighted undirected graph
   * `A` [Topological Sorting](src/algorithms/graph/topological-sorting) - DFS method
@@ -113,10 +123,12 @@ a set of rules that precisely define a sequence of operations.
   * `A` [Hamiltonian Cycle](src/algorithms/graph/hamiltonian-cycle) - Visit every vertex exactly once
   * `A` [Strongly Connected Components](src/algorithms/graph/strongly-connected-components) - Kosaraju's algorithm
   * `A` [Travelling Salesman Problem](src/algorithms/graph/travelling-salesman) - shortest possible route that visits each city and returns to the origin city
-* **Uncategorized**  
+* **Uncategorized**
   * `B` [Tower of Hanoi](src/algorithms/uncategorized/hanoi-tower)
   * `B` [Square Matrix Rotation](src/algorithms/uncategorized/square-matrix-rotation) - in-place algorithm
   * `B` [Jump Game](src/algorithms/uncategorized/jump-game) - backtracking, dynamic programming (top-down + bottom-up) and greedy examples 
+  * `B` [Unique Paths](src/algorithms/uncategorized/unique-paths) - backtracking, dynamic programming and Pascal's Triangle based examples 
+  * `B` [Rain Terraces](src/algorithms/uncategorized/rain-terraces) - trapping rain water problem (dynamic programming and brute force versions)
   * `A` [N-Queens Problem](src/algorithms/uncategorized/n-queens)
   * `A` [Knight's Tour](src/algorithms/uncategorized/knight-tour)
 
@@ -127,6 +139,8 @@ of algorithms. It is an abstraction higher than the notion of an algorithm, just
 algorithm is an abstraction higher than a computer program.
 
 * **Brute Force** - look at all the possibilities and selects the best solution
+  * `B` [Linear Search](src/algorithms/search/linear-search)
+  * `B` [Rain Terraces](src/algorithms/uncategorized/rain-terraces) - trapping rain water problem
   * `A` [Maximum Subarray](src/algorithms/sets/maximum-subarray)
   * `A` [Travelling Salesman Problem](src/algorithms/graph/travelling-salesman) - shortest possible route that visits each city and returns to the origin city
 * **Greedy** - choose the best option at the current time, without any consideration for the future
@@ -150,20 +164,24 @@ algorithm is an abstraction higher than a computer program.
 * **Dynamic Programming** - build up a solution using previously found sub-solutions
   * `B` [Fibonacci Number](src/algorithms/math/fibonacci)
   * `B` [Jump Game](src/algorithms/uncategorized/jump-game)
+  * `B` [Unique Paths](src/algorithms/uncategorized/unique-paths)
+  * `B` [Rain Terraces](src/algorithms/uncategorized/rain-terraces) - trapping rain water problem
   * `A` [Levenshtein Distance](src/algorithms/string/levenshtein-distance) - minimum edit distance between two sequences
   * `A` [Longest Common Subsequence](src/algorithms/sets/longest-common-subsequence) (LCS)
   * `A` [Longest Common Substring](src/algorithms/string/longest-common-substring)
-  * `A` [Longest Increasing subsequence](src/algorithms/sets/longest-increasing-subsequence)
+  * `A` [Longest Increasing Subsequence](src/algorithms/sets/longest-increasing-subsequence)
   * `A` [Shortest Common Supersequence](src/algorithms/sets/shortest-common-supersequence)
   * `A` [0/1 Knapsack Problem](src/algorithms/sets/knapsack-problem)
   * `A` [Integer Partition](src/algorithms/math/integer-partition)
   * `A` [Maximum Subarray](src/algorithms/sets/maximum-subarray)
   * `A` [Bellman-Ford Algorithm](src/algorithms/graph/bellman-ford) - finding shortest path to all graph vertices
+  * `A` [Floyd-Warshall Algorithm](src/algorithms/graph/floyd-warshall) - find shortest paths between all pairs of vertices
   * `A` [Regular Expression Matching](src/algorithms/string/regular-expression-matching)
 * **Backtracking** - similarly to brute force, try to generate all possible solutions, but each time you generate next solution you test
 if it satisfies all conditions, and only then continue generating subsequent solutions. Otherwise, backtrack, and go on a
 different path of finding a solution. Normally the DFS traversal of state-space is being used.
   * `B` [Jump Game](src/algorithms/uncategorized/jump-game)
+  * `B` [Unique Paths](src/algorithms/uncategorized/unique-paths)
   * `A` [Hamiltonian Cycle](src/algorithms/graph/hamiltonian-cycle) - Visit every vertex exactly once
   * `A` [N-Queens Problem](src/algorithms/uncategorized/n-queens)
   * `A` [Knight's Tour](src/algorithms/uncategorized/knight-tour)
@@ -260,7 +278,7 @@ Below is the list of some of the most used Big O notations and their performance
 | **Selection sort**    | n<sup>2</sup>   | n<sup>2</sup>       | n<sup>2</sup>       | 1         | No        |           |
 | **Heap sort**         | n&nbsp;log(n)   | n&nbsp;log(n)       | n&nbsp;log(n)       | 1         | No        |           |
 | **Merge sort**        | n&nbsp;log(n)   | n&nbsp;log(n)       | n&nbsp;log(n)       | n         | Yes       |           |
-| **Quick sort**        | n&nbsp;log(n)   | n&nbsp;log(n)       | n<sup>2</sup>       | log(n)    | No        |           |
+| **Quick sort**        | n&nbsp;log(n)   | n&nbsp;log(n)       | n<sup>2</sup>       | log(n)    | No        | Quicksort is usually done in-place with O(log(n)) stack space |
 | **Shell sort**        | n&nbsp;log(n)   | depends on gap sequence   | n&nbsp;(log(n))<sup>2</sup>  | 1         | No         |           |
 | **Counting sort**     | n + r           | n + r               | n + r               | n + r     | Yes       | r - biggest number in array |
 | **Radix sort**        | n * k           | n * k               | n * k               | n + k     | Yes       | k - length of longest key |

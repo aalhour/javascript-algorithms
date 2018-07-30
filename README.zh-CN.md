@@ -9,13 +9,21 @@
 
 _Read this in other languages:_
 [_English_](https://github.com/trekhleb/javascript-algorithms/),
-[繁體中文](README.zh-TW.md)
+[_繁體中文_](README.zh-TW.md),
+[_한국어_](README.ko-KR.md),
+[_Polski_](README.pl-PL.md),
+[_Français_](README.fr-FR.md)
+
+> We’re writing a book that will clearly explain, in detail, the main algorithms. 
+If you’d like to be notified when the “JavaScript Algorithms” book 
+launches, [click here](https://upscri.be/402324/).
 
 ## 数据结构
 
 数据结构是在计算机中组织和存储数据的一种特殊方式，它可以高效地访问和修改数据。更确切地说，数据结构是数据值的集合，它们之间的关系、函数或操作可以应用于数据。
 
 * [链表](src/data-structures/linked-list)
+* [双向链表](src/data-structures/doubly-linked-list)
 * [队列](src/data-structures/queue)
 * [栈](src/data-structures/stack)
 * [哈希表](src/data-structures/hash-table)
@@ -69,7 +77,7 @@ _Read this in other languages:_
   * [归并排序](src/algorithms/sorting/merge-sort)
   * [快速排序](src/algorithms/sorting/quick-sort)
   * [希尔排序](src/algorithms/sorting/shell-sort)
-* **树**  
+* **树**
   * [深度优先搜索](src/algorithms/tree/depth-first-search) (DFS)
   * [广度优先搜索](src/algorithms/tree/breadth-first-search) (BFS)
 * **图**
@@ -87,7 +95,8 @@ _Read this in other languages:_
   * [哈密顿图](src/algorithms/graph/hamiltonian-cycle) - 恰好访问每个顶点一次
   * [强连通分量](src/algorithms/graph/strongly-connected-components) - Kosaraju算法
   * [旅行推销员问题](src/algorithms/graph/travelling-salesman) - 尽可能以最短的路线访问每个城市并返回原始城市
-* **未分类**  
+  * [Floyd-Warshall algorithm](src/algorithms/graph/floyd-warshall) - 一次循环可以找出所有顶点之间的最短路径
+* **未分类**
   * [汉诺塔](src/algorithms/uncategorized/hanoi-tower)
   * [八皇后问题](src/algorithms/uncategorized/n-queens)
   * [骑士巡逻](src/algorithms/uncategorized/knight-tour)
@@ -176,38 +185,38 @@ npm test -- 'playground'
 
 以下是一些最常用的 大O标记法 列表以及它们与不同大小输入数据的性能比较。
 
-| 大O标记法 | 计算10个元素 | 计算100个元素 | 计算1000个元素  |
+| 大O标记法      | 计算10个元素                 | 计算100个元素                 | 计算1000个元素                  |
 | -------------- | ---------------------------- | ----------------------------- | ------------------------------- |
 | **O(1)**       | 1                            | 1                             | 1                               |
 | **O(log N)**   | 3                            | 6                             | 9                               |
 | **O(N)**       | 10                           | 100                           | 1000                            |
-| **O(N log N)** | 30                           | 600                            | 9000                            |
+| **O(N log N)** | 30                           | 600                           | 9000                            |
 | **O(N^2)**     | 100                          | 10000                         | 1000000                         |
 | **O(2^N)**     | 1024                         | 1.26e+29                      | 1.07e+301                       |
 | **O(N!)**      | 3628800                      | 9.3e+157                      | 4.02e+2567                      |
 
 ### 数据结构操作的复杂性
 
-| 数据结构          | 连接    | 查找    | 插入 | 删除  |
-| ----------------------- | :-------: | :-------: | :-------: | :-------: |
+| 数据结构               | 连接      | 查找      | 插入      | 删除      |
+| ---------------------- | :-------: | :-------: | :-------: | :-------: |
 | **数组**               | 1         | n         | n         | n         |
-| **栈**               | n         | n         | 1         | 1         |
+| **栈**                 | n         | n         | 1         | 1         |
 | **队列**               | n         | n         | 1         | 1         |
-| **链表**         | n         | n         | 1         | 1         |
-| **哈希表**          | -         | n         | n         | n         |
-| **二分查找树**  | n         | n         | n         | n         |
-| **B树**              | log(n)    | log(n)    | log(n)    | log(n)    |
-| **红黑树**      | log(n)    | log(n)    | log(n)    | log(n)    |
-| **AVL树**            | log(n)    | log(n)    | log(n)    | log(n)    |
+| **链表**               | n         | n         | 1         | 1         |
+| **哈希表**             | -         | n         | n         | n         |
+| **二分查找树**         | n         | n         | n         | n         |
+| **B树**                | log(n)    | log(n)    | log(n)    | log(n)    |
+| **红黑树**             | log(n)    | log(n)    | log(n)    | log(n)    |
+| **AVL树**              | log(n)    | log(n)    | log(n)    | log(n)    |
 
 ### 数组排序算法的复杂性
 
-| 名称                  | 最优      | 平均   | 最坏         | 内存    | 稳定    |
+| 名称                  | 最优      | 平均      | 最坏          | 内存      | 稳定      |
 | --------------------- | :-------: | :-------: | :-----------: | :-------: | :-------: |
-| **冒泡排序**       | n         | n^2       | n^2           | 1         | Yes       |
-| **插入排序**    | n         | n^2       | n^2           | 1         | Yes       |
-| **选择排序**    | n^2       | n^2       | n^2           | 1         | No        |
-| **堆排序**         | n log(n)  | n log(n)  | n log(n)      | 1         | No        |
-| **归并排序**        | n log(n)  | n log(n)  | n log(n)      | n         | Yes       |
-| **快速排序**        | n log(n)  | n log(n)  | n^2           | log(n)    | No        |
-| **希尔排序**        | n log(n)  | 取决于差距序列   | n (log(n))^2  | 1         | No        |
+| **冒泡排序**          | n         | n^2       | n^2           | 1         | Yes       |
+| **插入排序**          | n         | n^2       | n^2           | 1         | Yes       |
+| **选择排序**          | n^2       | n^2       | n^2           | 1         | No        |
+| **堆排序**            | n log(n)  | n log(n)  | n log(n)      | 1         | No        |
+| **归并排序**          | n log(n)  | n log(n)  | n log(n)      | n         | Yes       |
+| **快速排序**          | n log(n)  | n log(n)  | n^2           | log(n)    | No        |
+| **希尔排序**          | n log(n)  | 取决于差距序列   | n (log(n))^2  | 1         | No        |
