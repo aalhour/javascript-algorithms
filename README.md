@@ -19,6 +19,9 @@ _Read this in other languages:_
 [_Español_](README.es-ES.md),
 [_Português_](README.pt-BR.md)
 
+*☝ Note that this project is meant to be used for learning and researching purposes 
+only and it is **not** meant to be used for production.*
+
 ## Data Structures
 
 A data structure is a particular way of organizing and storing data in a computer so that it can
@@ -58,7 +61,7 @@ a set of rules that precisely define a sequence of operations.
 * **Math**
   * `B` [Bit Manipulation](src/algorithms/math/bits) - set/get/update/clear bits, multiplication/division by two, make negative etc.
   * `B` [Factorial](src/algorithms/math/factorial) 
-  * `B` [Fibonacci Number](src/algorithms/math/fibonacci)
+  * `B` [Fibonacci Number](src/algorithms/math/fibonacci) - classic and closed-form versions
   * `B` [Primality Test](src/algorithms/math/primality-test) (trial division method)
   * `B` [Euclidean Algorithm](src/algorithms/math/euclidean-algorithm) - calculate the Greatest Common Divisor (GCD)
   * `B` [Least Common Multiple](src/algorithms/math/least-common-multiple) (LCM)
@@ -67,6 +70,7 @@ a set of rules that precisely define a sequence of operations.
   * `B` [Pascal's Triangle](src/algorithms/math/pascal-triangle)
   * `B` [Complex Number](src/algorithms/math/complex-number) - complex numbers and basic operations with them
   * `B` [Radian & Degree](src/algorithms/math/radian) - radians to degree and backwards conversion
+  * `B` [Fast Powering](src/algorithms/math/fast-powering)
   * `A` [Integer Partition](src/algorithms/math/integer-partition)
   * `A` [Liu Hui π Algorithm](src/algorithms/math/liu-hui) - approximate π calculations based on N-gons
   * `A` [Discrete Fourier Transform](src/algorithms/math/fourier-transform) - decompose a function of time (a signal) into the frequencies that make it up 
@@ -105,6 +109,9 @@ a set of rules that precisely define a sequence of operations.
   * `B` [Shellsort](src/algorithms/sorting/shell-sort)
   * `B` [Counting Sort](src/algorithms/sorting/counting-sort)
   * `B` [Radix Sort](src/algorithms/sorting/radix-sort)
+* **Linked Lists**
+  * `B` [Straight Traversal](src/algorithms/linked-list/traversal)
+  * `B` [Reverse Traversal](src/algorithms/linked-list/reverse-traversal)
 * **Trees**
   * `B` [Depth-First Search](src/algorithms/tree/depth-first-search) (DFS)
   * `B` [Breadth-First Search](src/algorithms/tree/breadth-first-search) (BFS)
@@ -163,6 +170,7 @@ algorithm is an abstraction higher than a computer program.
   * `B` [Tree Depth-First Search](src/algorithms/tree/depth-first-search) (DFS)
   * `B` [Graph Depth-First Search](src/algorithms/graph/depth-first-search) (DFS)
   * `B` [Jump Game](src/algorithms/uncategorized/jump-game)
+  * `B` [Fast Powering](src/algorithms/math/fast-powering)
   * `A` [Permutations](src/algorithms/sets/permutations) (with and without repetitions)
   * `A` [Combinations](src/algorithms/sets/combinations) (with and without repetitions)
 * **Dynamic Programming** - build up a solution using previously found sub-solutions
@@ -288,9 +296,3 @@ Below is the list of some of the most used Big O notations and their performance
 | **Shell sort**        | n&nbsp;log(n)   | depends on gap sequence   | n&nbsp;(log(n))<sup>2</sup>  | 1         | No         |           |
 | **Counting sort**     | n + r           | n + r               | n + r               | n + r     | Yes       | r - biggest number in array |
 | **Radix sort**        | n * k           | n * k               | n * k               | n + k     | Yes       | k - length of longest key |
-
-## The Book
-
-We’re writing a book that will clearly explain, in detail, the main algorithms. 
-If you’d like to be notified when the “JavaScript Algorithms” book 
-launches, [click here](https://upscri.be/402324/).
