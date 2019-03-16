@@ -1,5 +1,9 @@
 # Linked List
 
+_Read this in other languages:_
+[_简体中文_](README.zh-CN.md),
+[_Русский_](README.ru-RU.md)
+
 In computer science, a **linked list** is a linear collection 
 of data elements, in which linear order is not given by 
 their physical placement in memory. Instead, each 
@@ -133,7 +137,7 @@ ReverseTraversal(head, tail)
       yield curr.value
       curr ← prev
     end while
-   yeild curr.value
+   yield curr.value
   end if
 end ReverseTraversal
 ```
@@ -144,7 +148,7 @@ end ReverseTraversal
 
 | Access    | Search    | Insertion | Deletion  |
 | :-------: | :-------: | :-------: | :-------: |
-| O(n)      | O(n)      | O(1)      | O(1)      |
+| O(n)      | O(n)      | O(1)      | O(n)      |
 
 ### Space Complexity
 
